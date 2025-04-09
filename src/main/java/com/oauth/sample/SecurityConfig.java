@@ -23,7 +23,7 @@
                 )
                 //.formLogin(form ->form.defaultSuccessUrl("/hello", true));
                 .oauth2Login(
-                    oauth2 -> oauth2.defaultSuccessUrl("/hello", false)
+                    oauth2 -> oauth2.defaultSuccessUrl("http://localhost:3000/dashboard", false)
                 );
 
             return http.build();
