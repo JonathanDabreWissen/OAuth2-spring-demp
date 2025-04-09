@@ -18,8 +18,14 @@
         SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception{
 
             http.csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(authorizeRequests -> authorizeRequests.anyRequest().authenticated())
-                .oauth2Login(oauth2 -> oauth2.defaultSuccessUrl("/hello", false));
+                .authorizeHttpRequests(
+                    authorizeRequests -> authorizeRequests.anyRequest().authenticated()
+                )
+                //.formLogin(form ->form.defaultSuccessUrl("/hello", true));
+                .oauth2Login(
+                    oauth2 -> oauth2.defaultSuccessUrl("/hello", false)
+                );
+
             return http.build();
         }
 
